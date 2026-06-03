@@ -4,6 +4,7 @@
  */
 
 $hero_text_content = get_field('hero_text_content');
+$service_short_description = get_field('service_short_description');
 $button_text = get_field('button_text');
 $button_link = get_field('hero_button_custom_link');
 $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
