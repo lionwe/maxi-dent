@@ -1,0 +1,110 @@
+// Single blog share
+
+.single-blog-share {
+  background: var(--color-white);
+
+  .container {
+    padding: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-divider-light-transparent);
+    border: none;
+  }
+
+  &__title {
+    @include font-share-title;
+
+    color: var(--color-text-primary);
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__btn-wrapper {
+    position: relative;
+  }
+
+  &__btn {
+    width: 59px;
+    height: 59px;
+    border-radius: 64px;
+    padding: 4px;
+    background: var(--color-bg-light-gray);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-decoration: none;
+
+    img,
+    svg {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) saturate(100%);
+    }
+
+    &:hover {
+      background: var(--color-btn-primary-hover);
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    background: var(--color-tooltip-bg);
+    border-radius: 10px;
+    color: var(--color-tooltip-text);
+
+    @include font-body-small;
+
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid var(--color-tooltip-bg);
+    }
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

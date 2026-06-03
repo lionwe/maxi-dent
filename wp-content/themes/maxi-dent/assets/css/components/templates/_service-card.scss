@@ -1,0 +1,112 @@
+// Service Card Component
+.services-post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-services-card-border);
+  background: var(--color-surface-gray);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  transition: var(--transition-base);
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  &__image {
+    width: 100%;
+    height: convert-to-rem(239px);
+    flex-shrink: 0;
+    object-fit: cover; 
+    object-position: center;
+
+    &--placeholder {
+      background: var(--color-bg-placeholder);
+      height: convert-to-rem(239px);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 13px 30px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include font-service-card-title;
+
+    color: var(--color-text-primary);
+    margin: 0;
+    width: 100%;
+  }
+
+  &__divider {
+    width: 100%;
+    max-width: convert-to-rem(174px);
+    height: 1px;
+    background: var(--color-divider-dark);
+    border: none;
+    margin: 0;
+  }
+
+  &__excerpt {
+    @include font-body-xs-tight;
+
+    color: var(--color-text-tertiary);
+    margin: 5px 0 0;
+    width: 100%;
+  }
+
+  // Tablet / Intermediate styles
+  @media (width <= 900px) {
+    &__content {
+      padding: 8px 12px 24px;
+    }
+  }
+
+  // Mobile Styles
+  @include mobile {
+    min-height: convert-to-rem(180px);
+
+    &__image {
+      // Mobile Height override
+      height: convert-to-rem(129px);
+
+      &--placeholder {
+        height: convert-to-rem(129px);
+      }
+    }
+
+    &__content {
+      padding: 6px 10px 16px;
+      align-items: flex-start;
+    }
+
+    &__title {
+      @include font-service-card-title-mobile;
+
+      text-align: left;
+      width: 100%;
+      min-height: 0;
+      display: block;
+    }
+
+    &__divider {
+      width: 100%;
+      max-width: convert-to-rem(143px);
+      margin: 3px 0 0;
+    }
+
+    &__excerpt {
+      @include font-body-xs-tight;
+
+      max-width: 100%;
+      margin-top: 4px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+wp-admin/
+wp-includes/
+wp-content/plugins/
+node_modules/
+*.css
+*.min.css

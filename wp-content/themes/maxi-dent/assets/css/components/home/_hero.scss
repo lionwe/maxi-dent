@@ -1,0 +1,301 @@
+// Hero section
+
+.hero-section {
+  min-height: min(100vh, 900px);
+  padding: 100px 0 73px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: var(--border-radius-large);
+  border-bottom-right-radius: var(--border-radius-large);
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-dark-blur);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    border-bottom-left-radius: var(--border-radius-large);
+    border-bottom-right-radius: var(--border-radius-large);
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    position: relative;
+    z-index: 2;
+    min-height: 0;
+  }
+}
+
+.hero-content {
+  flex: 1 1 55%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 0;
+  }
+}
+
+.hero-users {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__image {
+    width: 138px;
+    height: 42px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    @include font-hero-mobile-users-text;
+
+    color: var(--color-primary);
+
+    strong {
+      font-weight: 700;
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.hero-description {
+  @include font-hero-description;
+
+  color: var(--color-text-gray);
+  margin: 0;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  color: var(--color-white);
+  margin: 0;
+  max-width: 100%;
+
+  &__main {
+    @include font-hero-title-main;
+
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__secondary {
+    @include font-hero-title-secondary;
+
+    display: block;
+    font-weight: 400;
+  }
+}
+
+.hero-cards {
+  &--mobile {
+    display: none;
+  }
+}
+
+.hero-button {
+  align-self: flex-start;
+}
+
+.hero-media {
+  flex: 1 1 45%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    min-height: 0;
+  }
+}
+
+.hero-image {
+  flex: 1 1 0%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+
+  img {
+    @include image-cover;
+  }
+}
+
+// Media
+
+@media (width <=1400px) {
+  .hero-section {
+    .container {
+      gap: 28px;
+    }
+  }
+
+  .hero-description {
+    max-width: 300px;
+  }
+}
+
+@media (width <=1200px) {
+  .hero-section {
+    .container {
+      gap: 24px;
+    }
+  }
+
+  .hero-content {
+    flex: 1 1 60%;
+  }
+
+  .hero-media {
+    flex: 1 1 40%;
+  }
+
+  .hero-description {
+    max-width: 260px;
+  }
+}
+
+@media (width <=992px) {
+  .hero-section {
+    min-height: auto;
+    padding: 110px 0 40px;
+
+    .container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+    align-items: flex-start;
+    gap: 20px;
+
+    &__top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      width: 100%;
+    }
+  }
+
+  .hero-users__image {
+    width: 120px;
+    height: 38px;
+  }
+
+  .hero-description {
+    @include font-hero-mobile-description;
+
+    max-width: none;
+    width: 100%;
+  }
+
+  .hero-title {
+    width: 100%;
+
+    &__main {
+      @include font-hero-mobile-title-main;
+
+      margin-bottom: 6px;
+    }
+
+    &__secondary {
+      @include font-hero-mobile-title-secondary;
+
+      margin-bottom: 0;
+    }
+  }
+
+  .hero-cards--mobile {
+    display: flex;
+    gap: 19px;
+    width: 100%;
+  }
+
+  .hero-media {
+    display: none;
+  }
+
+  .hero-button {
+    margin-top: 8px;
+  }
+}
+
+@media (width <=768px) {
+  .hero-section {
+    padding-top: 120px;
+  }
+
+  .hero-content {
+    align-items: stretch;
+
+    &__top {
+      align-items: flex-start;
+    }
+  }
+
+  .hero-description {
+    text-align: left;
+  }
+
+  .hero-button {
+    width: calc(100% - 32px);
+    margin: 10px auto 0;
+  }
+
+  .hero-cards--mobile {
+    gap: 16px;
+  }
+}
+
+@media (width <=576px) {
+  .hero-section {
+    padding-top: 200px;
+  }
+
+  .hero-cards--mobile {
+    gap: 14px;
+  }
+}

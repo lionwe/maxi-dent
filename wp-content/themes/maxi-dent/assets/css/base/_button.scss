@@ -1,0 +1,415 @@
+// Buttons
+
+// primary
+.btn-primary {
+  @include button-base($bg-color: var(--color-btn-primary-bg),
+    $text-color: var(--color-btn-primary-text),
+    $hover-bg: var(--color-btn-primary-hover));
+
+  width: auto;
+
+  // Pressed / focus state (desktop + mobile)
+  &:active,
+  &:focus-visible {
+    background-color: var(--color-btn-primary-hover);
+    border-color: var(--color-btn-primary-hover);
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  &__icon {
+    width: 27px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img,
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    margin: 0;
+  }
+}
+
+// secondary
+.btn-secondary {
+  @include button-base($bg-color: var(--color-btn-secondary-bg),
+    $text-color: var(--color-btn-secondary-text),
+    $hover-bg: var(--color-btn-secondary-hover));
+
+  width: 100%;
+
+  // Pressed / focus state
+  &:active,
+  &:focus-visible {
+    background-color: var(--color-btn-secondary-hover);
+    border-color: var(--color-btn-secondary-hover);
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  &__icon {
+    width: 27px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img,
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: var(--color-btn-secondary-text);
+  }
+}
+
+// tertiary
+.btn-tertiary {
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  @include font-button;
+
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: var(--transition-base);
+
+  &__text {
+    margin: 0;
+  }
+
+  &:hover {
+    color: var(--color-btn-tertiary-hover);
+  }
+
+  &:active {
+    transform: none;
+  }
+}
+
+// nav buttons
+.btn-nav-prev,
+.btn-nav-next {
+  width: 69px;
+  height: 69px;
+  border-radius: 34.5px;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  font-size: 0;
+  background-clip: padding-box;
+
+  img,
+  svg {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.btn-nav-prev {
+  background: var(--color-nav-prev-bg);
+  border-color: var(--color-border-white);
+  color: var(--color-text-primary);
+
+  &:not(:disabled):hover {
+    background: var(--color-nav-prev-hover);
+  }
+}
+
+.btn-nav-next {
+  background: var(--color-nav-next-bg);
+  border-color: var(--color-nav-next-bg);
+  color: var(--color-white);
+
+  &:not(:disabled):hover {
+    background: var(--color-nav-next-hover);
+    border-color: var(--color-nav-next-hover);
+  }
+
+  &:disabled {
+    background: #9d9d9d;
+    border-color: #9d9d9d;
+  }
+}
+
+// results view
+.btn-results-view {
+  width: 35px;
+  height: 32px;
+  border-radius: 5px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  padding: 16px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  font-size: 0;
+  background: rgb(255 255 255 / 40%);
+  flex-shrink: 0;
+
+  img,
+  svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  &:hover {
+    border-color: var(--color-hover-light);
+    background: rgb(255 255 255 / 60%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// FAQ toggle
+.btn-faq-toggle {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid var(--color-border-blue-light);
+  border-radius: 5px;
+  padding: 10px 8px 10px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-base);
+
+  &__text {
+    @include font-faq-item-question;
+
+    color: var(--color-text-primary);
+    flex: 1;
+    margin: 0;
+    text-align: left;
+  }
+
+  &__icon-wrapper {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgb(188 210 240 / 50%);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    transition: opacity 0.3s ease;
+
+    &--plus {
+      opacity: 1;
+    }
+
+    &--minus {
+      opacity: 0;
+    }
+  }
+}
+
+// footer menu
+.btn-footer-menu {
+  width: fit-content;
+  height: auto;
+  padding: 0.5px 18.5px;
+  border-radius: 32px;
+  border: 1px solid #514f4f;
+  background: var(--color-bg-dark);
+
+  @include font-button;
+
+  color: var(--color-white);
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition-base);
+
+  &__text {
+    margin: 0;
+    color: var(--color-white);
+    transition: color var(--transition-base);
+  }
+
+  &:hover {
+    color: var(--color-white);
+    border-color: var(--color-white);
+    background: var(--color-btn-primary-hover);
+  }
+
+  &:hover .btn-footer-menu__text {
+    color: var(--color-black);
+  }
+}
+
+// footer social
+.btn-footer-social {
+  width: fit-content;
+  height: auto;
+  padding: 8px 18px;
+  border-radius: 12px;
+  border: 1px solid #514f4f;
+  background: var(--color-bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  text-decoration: none;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+  }
+
+  &:hover {
+    border-color: var(--color-white);
+    background: var(--color-btn-primary-hover);
+
+    img {
+      filter: brightness(0);
+    }
+  }
+}
+
+// Footer bottom links
+.btn-footer-tertiary,
+.btn-footer-tertiary:link,
+.btn-footer-tertiary:visited {
+  display: inline-block;
+  background: none !important;
+  border: none !important;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0;
+
+  @include font-footer-text;
+
+  font-family: Mulish, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: var(--color-white) !important;
+  text-decoration: underline !important;
+  text-decoration-style: solid;
+  text-decoration-color: var(--color-white) !important;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  white-space: nowrap;
+  transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.btn-footer-tertiary__text {
+  margin: 0;
+  color: inherit !important;
+  transition: color 0.3s;
+}
+
+.btn-footer-tertiary:hover,
+.btn-footer-tertiary:active,
+.btn-footer-tertiary:focus {
+  color: var(--color-primary-hover) !important;
+  text-decoration-color: var(--color-primary-hover) !important;
+}
+
+.btn-footer-tertiary:hover .btn-footer-tertiary__text,
+.btn-footer-tertiary:active .btn-footer-tertiary__text,
+.btn-footer-tertiary:focus .btn-footer-tertiary__text {
+  color: var(--color-primary-hover) !important;
+}
+
+// media
+@media (width <=768px) {
+  .btn-primary {
+    width: 100%;
+    height: 52px;
+  }
+
+  .btn-primary__text {
+    @include font-hero-mobile-button-text;
+  }
+
+  .btn-primary__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn-footer-menu__text {
+    @include font-body-regular-mobile;
+  }
+
+  .btn-footer-tertiary {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  // Secondary button inside FAQ mobile card
+  .faq-consultation-card--mobile .btn-secondary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .faq-consultation-card--mobile .btn-secondary__text {
+    @include font-hero-mobile-button-text;
+
+    margin: 0;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .faq-consultation-card--mobile .btn-secondary__icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+  }
+}

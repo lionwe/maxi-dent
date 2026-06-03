@@ -1,0 +1,193 @@
+:root {
+  // SPACING
+  --_section-gap: clamp(50px, 7vw, 100px);
+  --_section-offset: clamp(10px, 4vw, 50px);
+  --_footer-offset-top: 100px;
+  --_footer-padding-y: 32px;
+
+  // Blog Post Spacing
+  --_blog-hero-padding-top: 154px;
+  --_blog-hero-padding-bottom: 50px;
+
+  // Form Spacing
+  --_form-field-gap: 9px;
+  --_form-button-margin-top: 15px;
+  --_form-input-padding-y: 12px;
+  --_form-input-padding-x: 14px;
+
+  // Border Radius
+  --border-radius-large: 32px;
+  --border-radius-slarge: 30px;
+  --border-radius-medium2: 20px;
+  --border-radius-medium: 10px;
+  --border-radius-small: 5px;
+
+  // FAQ Spacing
+  --_faq-item-open-margin: 19px;
+  --_faq-content-margin-top: 6px;
+  --_faq-answer-padding-left: 20px;
+
+  // BASE COLORS
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #c8f365;
+  --color-primary-hover: #b9d618;
+  --color-primary-light: #e3ff75;
+
+  // Reviews
+  --color-reviews-line-border: #d5d4e0; // title line color
+  --color-stars-gold: #ffc107; // rating star color
+  --color-text-muted-dark: #999; // subtle meta text
+
+  // BACKGROUND COLORS
+  --color-bg-main: #fffcfc;
+  --color-bg-dark: #2d2d2d;
+  --color-bg-blue: #f1f6fe;
+  --color-bg-light-gray: #f2f2f2;
+  --color-bg-light-beige: #eeeeec;
+  --color-bg-beige: #eae8df;
+  --color-bg-light-blue: #dbeaff;
+  --color-bg-placeholder: #e0e0e0;
+  --color-benefits-number-bg: rgb(232 241 255 / 50%);
+  --color-benefits-icon-bg: rgb(232 241 255 / 70%);
+  --color-contact-badge-bg: rgb(239 239 240 / 100%);
+  --color-contact-schedule-list-bg: rgb(245 245 245 / 50%);
+  --color-team-number-bg: rgb(247 247 247 / 60%);
+  --color-results-back-bg: #f0f0f0;
+  --color-pricing-left-bg: rgb(244 244 244 / 70%);
+  --color-reviews-card-bg: #f3f8ff;
+  --color-blog-bg: #f6f6f6;
+  --color-burger-bg: #d9d9d933;
+  --color-bg-soft-gray: #f4f4f4;
+  --color-bg-gray-extra-light: #f8f7f7;
+
+  // SURFACE COLORS (Cards, Containers)
+  --color-surface-white-50: rgb(255 255 255 / 50%);
+  --color-surface-white-40: rgb(97 97 97 / 40%);
+  --color-surface-white-20: rgb(255 255 255 / 20%);
+  --color-surface-white-10: rgb(255 255 255 / 10%);
+  --color-surface-white-5: rgb(255 255 255 / 5%);
+  --color-surface-gray: #f4f4f4;
+  --color-surface-light-gray: #f1f6fe;
+  --color-surface-blue-light: #f1f7ff;
+  --color-surface-blue: #e9f3fe;
+  --color-surface-beige: rgb(238 238 238 / 50%);
+
+  // BORDER COLORS
+  --color-border-white: #fff;
+  --color-border-gray-light-transparent: #dadadd80;
+  --color-border-light-gray: #ebebeb;
+  --color-border-gray: #e1e1e1;
+  --color-border-dark-gray: #c3c3c3;
+  --color-border-blue-light: #bcd2f0;
+  --color-border-blue: #d2e3fb;
+  --color-border-purple: #dcd8ff;
+  --color-border-beige: #dedede;
+  --color-contact-schedule-list-border: #e5e4e4;
+  --color-pricing-left-border: rgb(221 221 221 / 50%);
+  --color-pricing-tab-border: rgb(210 209 209 / 40%);
+  --color-results-card-border: #e4e3e3;
+  --color-services-card-border: rgb(167 164 195 / 40%);
+  --color-faq-border: #d6d6d6;
+  --color-stats-border: #888;
+  --color-hamburger-border: #8383834d;
+
+  // TEXT COLORS
+  --color-text-primary: #000;
+  --color-text-secondary: #5c5a5a;
+  --color-text-tertiary: #737373;
+  --color-text-gray: #b9b9b9;
+  --color-text-gray-light: #cccbcb;
+  --color-text-dark-gray: #424242;
+  --color-text-hint: #aaa9a9;
+  --color-text-placeholder: #9c9898;
+  --color-text-light: #f0f0f0;
+  --color-text-muted-light: #b9b9b9;
+  --color-contact-badge-text: #4a4a4a;
+  --color-contact-phone-title: #343434;
+  --color-benefits-number-text: #919191;
+  --color-faq-text-muted: #7b7979;
+  --color-text-muted: #bdb4b4;
+
+  // BUTTON COLORS
+  --color-btn-primary-bg: var(--color-primary);
+  --color-btn-primary-text: var(--color-black);
+  --color-btn-primary-hover: #d1d7c1;
+  --color-btn-secondary-bg: var(--color-bg-dark);
+  --color-btn-secondary-text: #f0f0f0;
+  --color-btn-secondary-hover: #8c8c8c;
+  --color-btn-tertiary-hover: var(--color-primary-hover);
+
+  // BADGE COLORS
+  --color-badge-bg: linear-gradient(
+    90deg,
+    rgb(231 241 255 / 20%) 43.35%,
+    rgb(255 255 255 / 20%) 100%
+  );
+  --color-badge-bg-light: linear-gradient(
+    90deg,
+    rgb(231 241 255 / 30%) 43.35%,
+    rgb(255 255 255 / 30%) 100%
+  );
+  --color-badge-text: var(--color-text-secondary);
+  --color-badge-border: rgb(210 229 255 / 100%);
+  --color-badge-dot: var(--color-bg-dark);
+
+  // ACCENT COLORS
+  --color-accent-green-light: #d3f584;
+  --color-accent-green-gradient: linear-gradient(
+    90deg,
+    rgb(200 243 101 / 50%) 37.5%,
+    rgb(200 243 101 / 50%) 100%
+  );
+  --color-accent-blue-light: #eaf0f8;
+  --color-accent-blue: rgb(219 234 255 / 50%);
+
+  // SHADOW & OVERLAY
+  --shadow-card-hover: 0px 4px 50px 0px #d1d1d2;
+  --shadow-experience: rgb(0 0 0 / 12%);
+  --overlay-dark: rgb(17 17 17 / 50%);
+  --overlay-hover: rgb(188 210 240 / 70%);
+  --overlay-dark-blur: rgb(0 0 0 / 60%);
+
+  // DIVIDER COLORS
+  --color-divider-light: rgb(188 210 240 / 70%);
+  --color-divider-gray: #e4e5e8;
+  --color-divider-dark: rgb(0 0 0 / 30%);
+  --color-divider-dark-alt: #2a2a2b;
+  --color-divider-light-transparent: rgb(0 0 0 / 20%);
+  --color-divider-purple: rgb(77 69 146 / 50%);
+
+  // PAGINATION & NAVIGATION
+  --color-pagination-active: #bcd2f0;
+  --color-pagination-inactive: #d9d9d9;
+  --color-nav-prev-bg: #f5f5f5;
+  --color-nav-prev-hover: #e0e0e0;
+  --color-nav-next-bg: var(--color-bg-dark);
+  --color-nav-next-hover: var(--color-btn-primary-hover);
+
+  // FORM COLORS
+  --color-form-bg: #fcfcfc;
+  --color-form-input-bg: rgb(229 229 229 / 40%);
+  --color-form-input-border: rgb(255 255 255 / 20%);
+  --color-form-input-placeholder: var(--color-text-placeholder);
+  --color-form-input-focus: rgb(200 243 101 / 10%);
+  --color-form-input-invalid-border: #ff6b6b;
+  --color-form-input-invalid-bg: rgb(255 107 107 / 10%);
+  --color-form-input-valid: #51cf66;
+
+  // STATE COLORS
+  --color-hover-light: rgb(255 255 255 / 80%);
+  --color-hover-gray: #d3d3d3;
+
+  // Tooltip
+  --color-tooltip-bg: #8c8c8c;
+  --color-tooltip-text: #fff;
+
+  // TRANSITIONS
+  --transition-base: all 0.3s ease;
+  --animation-duration-shake: 0.4s;
+  --animation-duration-faq: 0.3s;
+  --transition-duration-base: 0.35s;
+  --transition-duration-long: 0.6s;
+}

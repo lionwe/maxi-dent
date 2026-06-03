@@ -1,0 +1,200 @@
+<?php
+add_action('wp_enqueue_scripts', 'enqueue_scripts_and_styles');
+add_action('after_setup_theme', 'theme_setup');
+add_filter('upload_mimes', 'svg_upload_allow');
+add_action('wpcf7_before_send_mail', 'send_message_to_telegram');
+add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5);
+
+function enqueue_scripts_and_styles(){
+
+    wp_enqueue_style('main-style', get_template_directory_uri() . '/dist/css/main.bundle.css', array(), '31.11.25'); // R
+
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/dist/js/main.bundle.js', array(), null, true);
+    wp_localize_script('main-js', 'params', array(
+			'template_directory_url' => get_template_directory_uri(),
+			'ajax_url' => admin_url('admin-ajax.php'),
+			'page_template' => get_page_template_slug() ? get_page_template_slug() : ''
+		));
+}
+
+function theme_setup(){
+    show_admin_bar(false);
+    
+    // Register navigation menus
+    register_nav_menus(array(
+        'menu-header' => 'Main menu',
+        'footer-menu' => 'Footer menu'
+    ));
+
+    add_theme_support('custom-logo');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+}
+
+
+function get_image($name)
+{
+    echo get_template_directory_uri() . "/assets/images/" . $name;
+}
+
+function getPhrase($string_key, $group = 'Main Page')
+{
+    global $strings_to_translate, $strings_to_translate_privacy;
+
+    $strings = $group === 'Privacy Policy' ? $strings_to_translate_privacy : $strings_to_translate;
+
+    if (function_exists('pll__')) {
+        echo pll__($strings[$string_key], $group);
+    } else {
+        echo $strings[$string_key];
+    }
+}
+
+$strings_to_translate = array(
+    '' => '',
+);
+
+$strings_to_translate_privacy = array(
+    '' => '',
+);
+
+if (function_exists('pll_register_string')) {
+    foreach ($strings_to_translate as $string_key => $string_value) {
+        pll_register_string($string_key, $string_value, 'Main Page');
+    }
+
+    foreach ($strings_to_translate_privacy as $string_key => $string_value) {
+        pll_register_string($string_key, $string_value, 'Privacy Policy');
+    }
+}
+
+
+function svg_upload_allow($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+
+    return $mimes;
+}
+
+function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+{
+
+    if (version_compare($GLOBALS['wp_version'], '5.1.0', '>=')) {
+        $dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
+    } else {
+        $dosvg = ('.svg' === strtolower(substr($filename, -4)));
+    }
+
+    if ($dosvg) {
+
+        if (current_user_can('manage_options')) {
+
+            $data['ext'] = 'svg';
+            $data['type'] = 'image/svg+xml';
+        } else {
+            $data['ext'] = false;
+            $data['type'] = false;
+        }
+    }
+
+    return $data;
+}
+
+function getHomePageID()
+{
+
+	// Отримуємо ID стандартної головної сторінки
+	$default_home_id = get_option('page_on_front');
+
+	// Перевіряємо, чи встановлений Polylang і чи існують необхідні функції
+	if (function_exists('pll_current_language') && function_exists('pll_get_post')) {
+		// Визначаємо поточну мову
+		$current_lang = pll_current_language();
+
+		// Отримуємо ID перекладеної сторінки
+		$translated_home_id = pll_get_post($default_home_id, $current_lang);
+
+		// Повертаємо перекладений ID, якщо він існує, інакше стандартний
+		return $translated_home_id ? $translated_home_id : $default_home_id;
+	}
+
+	// Якщо Polylang не встановлений, повертаємо стандартний ID
+	return $default_home_id;
+}
+
+add_action('acf/init', function() {
+    if( function_exists('acf_add_options_page') ) {
+        acf_add_options_page(array(
+            'page_title' => 'Налаштування сайту',
+            'menu_title' => 'Налаштування',
+            'menu_slug' => 'site-options',
+            'capability' => 'manage_options',
+            'redirect' => false,
+            'position' => 65,
+            'icon_url' => 'dashicons-admin-generic',
+            'update_button' => __('Зберегти налаштування'),
+            'updated_message' => __('Налаштування оновлені')
+        ));
+    }
+});
+
+
+// ============================================
+// Disable Gutenberg Editor
+// ============================================
+
+add_filter('use_block_editor_for_post_type', '__return_false', 100);
+add_filter('use_block_editor_for_post', '__return_false', 100);
+
+// Приховати Gutenberg в адмінці
+add_action('admin_enqueue_scripts', function() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+});
+
+
+
+// ============================================
+// Include Custom Post Types/ajax-handlers
+// ============================================
+
+require_once get_template_directory() . '/includes/post-types.php';
+require_once get_template_directory() . '/includes/ajax-handlers.php';
+require_once get_template_directory() . '/includes/blog-views.php';
+
+
+// Disable Trustindex carousel/slider completely
+add_action('wp_enqueue_scripts', function() {
+    // Disable via filters
+    add_filter('trustindex_carousel_enabled', '__return_false');
+    add_filter('trustindex_slider_enabled', '__return_false');
+    
+    // Kill Trustindex JS on reviews page
+    if (is_page_template('pages/home.php')) {
+        add_action('wp_footer', function() {
+            echo '<script>
+                // Completely disable Trustindex controls
+                (function() {
+                    if (window.trustindex) {
+                        window.trustindex.carousel = null;
+                        window.trustindex.slider = null;
+                        window.trustindex.init = function() { return false; };
+                    }
+                    
+                    // Prevent Trustindex from hooking into DOM
+                    const observer = new MutationObserver(() => {
+                        const trustPagination = document.querySelector(".trustindex-pagination");
+                        const trustNav = document.querySelector(".trustindex-nav");
+                        if (trustPagination) trustPagination.style.display = "none";
+                        if (trustNav) trustNav.style.display = "none";
+                    });
+                    
+                    observer.observe(document.body, { childList: true, subtree: true });
+                })();
+            </script>';
+        }, 999);
+    }
+}, 1000);
+
+
+

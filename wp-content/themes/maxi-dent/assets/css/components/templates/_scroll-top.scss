@@ -1,0 +1,55 @@
+.scroll-top {
+  position: fixed;
+  right: convert-to-rem(30px);
+  bottom: convert-to-rem(30px);
+  z-index: 900;
+
+  width: convert-to-rem(50px);
+  height: convert-to-rem(50px);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-bg-dark);
+  color: var(--color-white);
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition-base);
+
+  &__icon {
+    width: convert-to-rem(24px);
+    height: convert-to-rem(24px);
+    stroke: currentColor;
+    transition: var(--transition-base);
+  }
+
+  // Active state (visible)
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @include hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-black);
+    
+    .scroll-top__icon {
+        transform: translateY(-3px);
+    }
+  }
+
+  @include mobile {
+    right: convert-to-rem(20px);
+    bottom: convert-to-rem(20px);
+    width: convert-to-rem(44px);
+    height: convert-to-rem(44px);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "maxi-dent-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:scss": "stylelint \"wp-content/themes/maxi-dent/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"wp-content/themes/maxi-dent/**/*.scss\" --fix",
+    "lint:js": "eslint \"wp-content/themes/maxi-dent/**/*.js\""
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "stylelint": "^16.26.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-scss": "^6.12.1"
+  }
+}

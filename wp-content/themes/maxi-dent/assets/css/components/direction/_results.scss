@@ -1,0 +1,384 @@
+// Service results section
+.sr-section {
+  padding: 0;
+  background-color: var(--color-bg-blue);
+}
+
+// Desktop grid
+.sr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 286px;
+  gap: 20px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+.sr-grid--desktop {
+  display: grid;
+}
+
+// Hidden items class
+.sr-card--hidden {
+  display: none !important;
+}
+
+// Intro block
+.sr-intro {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+
+  .sr-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+    padding: 10px;
+    border-radius: var(--border-radius-small);
+    background: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+
+    span {
+      @include font-card-list;
+
+      color: var(--color-badge-text);
+    }
+  }
+
+  // Styles for WYSIWYG content
+  h2 {
+    @include font-section-title;
+
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  p {
+    @include font-body-large;
+
+    color: var(--color-text-primary);
+    margin: 0 0 15px;
+    max-width: 580px;
+  }
+
+  // Button styles
+  .sr-intro__button {
+    max-width: 291px;
+    cursor: pointer;
+    transition: var(--transition-base);
+
+    // Rotate icon when expanded
+    &.expanded .btn-secondary__icon {
+        transform: rotate(180deg);
+    }
+    
+    // Smooth rotation for icon
+    .btn-secondary__icon {
+        transition: transform 0.5s ease-in-out;
+        transform-origin: center;
+    }
+  }
+}
+
+// Flip card
+.sr-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  perspective: 1000px;
+
+  &__front,
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__front {
+    background: transparent;
+    border: 1px solid var(--color-results-card-border);
+    padding: 30px 56px;
+    z-index: 1;
+    transition: box-shadow 0.3s, transform 0.6s;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__back {
+    background: var(--color-results-back-bg);
+    transform: rotateY(180deg);
+    transition: transform 0.6s;
+  }
+
+  &:not(.flipped):hover &__front {
+    box-shadow: 0 4px 50px 0 rgb(0 0 0 / 25%);
+  }
+
+  &.flipped &__front {
+    transform: rotateY(180deg);
+  }
+
+  &.flipped &__back {
+    transform: rotateY(0deg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    @include font-results-title;
+
+    color: var(--color-text-primary);
+    margin: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__hint {
+    @include font-results-hint;
+
+    color: var(--color-text-hint);
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+// Mobile swiper
+.sr-swiper-wrapper {
+  display: none;
+}
+
+.sr-swiper--mobile {
+  display: none;
+}
+
+// Controls
+.sr-carousel__controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.sr-carousel__navigation {
+  display: flex;
+  gap: 0;
+}
+
+.sr-carousel__pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 8px;
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-pagination-inactive);
+    opacity: 1;
+    transition: var(--transition-base);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--overlay-hover);
+    }
+
+    &-active {
+      background: var(--color-pagination-active);
+    }
+  }
+}
+
+/* 1200px */
+@media (width <=1200px) {
+  .sr-section {
+    padding: 36px 0;
+  }
+
+  .sr-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding-top: 32px;
+    padding-bottom: 28px;
+  }
+
+  .sr-intro {
+    grid-column: 1 / span 3;
+  }
+
+  .sr-card__content {
+    padding: 26px 42px;
+  }
+}
+
+/* 992px */
+@media (width <=992px) {
+  .sr-section {
+    padding: 32px 0;
+  }
+
+  .sr-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .sr-intro {
+    grid-column: 1 / span 2;
+  }
+
+  .sr-card {
+    height: 260px;
+  }
+
+  .sr-card__content {
+    padding: 22px 32px;
+  }
+}
+
+/* 768px */
+@media (width <=768px) {
+  .sr-section {
+    padding: 32px 0;
+  }
+
+  // Intro: keep badge + h2, hide p + button
+  .sr-intro {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+
+    .sr-badge span {
+      @include font-badge-mobile;
+    }
+
+    // Target H2 from WYSIWYG
+    h2 {
+      @include font-title-xl-mobile;
+
+      color: var(--color-text-primary);
+    }
+
+    // Target P from WYSIWYG and hide it
+    p,
+    .sr-intro__button {
+      display: none !important;
+    }
+  }
+
+  // Hide desktop cards, keep intro
+  .sr-grid {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 0;
+  }
+
+  .sr-grid .sr-card {
+    display: none;
+  }
+
+  // Show mobile swiper
+  .sr-swiper--mobile {
+    display: block;
+  }
+
+  .sr-swiper-mobile {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+
+    .swiper-wrapper {
+      display: flex;
+    }
+
+    .swiper-slide {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      display: flex;
+      align-items: stretch;
+      box-sizing: border-box;
+      padding: 6px 12px;
+    }
+  }
+
+  // Mobile swiper card
+  .sr-swiper-mobile .sr-card {
+    display: block;
+    height: 286px;
+    margin: 0;
+  }
+}
+
+// hide mobile controls on desktop
+@media (width >=769px) {
+  .sr-carousel__controls {
+    display: none;
+  }
+}
+
+/* 576px */
+@media (width <=576px) {
+  .sr-section {
+    padding: 28px 0;
+  }
+
+  .sr-swiper-mobile .swiper-slide {
+    padding: 6px 8px;
+  }
+
+  .sr-card {
+    height: 270px;
+  }
+
+  .sr-card__content {
+    padding: 20px;
+  }
+}

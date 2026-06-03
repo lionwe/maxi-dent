@@ -1,0 +1,242 @@
+// Services Types Section
+.services-types-section {
+  background-color: var(--color-bg-main);
+}
+
+// Desktop container (swiper)
+.services-types-section__container--desktop {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  gap: 38px;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+  padding-top: 0;
+}
+
+// Mobile/tablet container (grid)
+.services-types-section__container--mobile {
+  display: none;
+}
+
+// Grid wrapper (mobile / tablet)
+.services-types-mobile-grid {
+  display: none;
+}
+
+// Left column
+.services-types-section__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 430px;
+  min-width: 310px;
+}
+
+.services-types-section__badge {
+  min-width: 90px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--color-badge-bg-light);
+  border: 1px solid var(--color-badge-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin-bottom: 14px;
+
+  span {
+    @include font-card-list;
+
+    color: var(--color-badge-text);
+  }
+}
+
+.services-types-section__title-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: none;
+}
+
+.services-types-section__title {
+  @include font-section-title;
+
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+  width: 160%;
+  white-space: pre-line;
+  min-width: 370px;
+  max-width: 750px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.services-types-section__description {
+  @include font-body-large;
+
+  color: var(--color-text-primary);
+  margin-top: 4px;
+  margin-bottom: 0;
+  max-width: 390px;
+  z-index: 1;
+  position: relative;
+}
+
+// Right column
+.services-types-section__right {
+  grid-column: 2;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin-top: 105px;
+  padding-left: 0;
+}
+
+.services-types-section__right--desktop {
+  display: block;
+}
+
+.services-types-section__right--mobile {
+  display: none;
+}
+
+// Desktop swiper
+.services-types-swiper {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+
+  .swiper-wrapper {
+    display: flex;
+    position: relative;
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    width: auto;
+    min-width: 340px;
+    max-width: 363px;
+    flex-shrink: 0;
+    margin-right: 25px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Desktop controls
+.services-types-carousel__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  position: relative;
+  z-index: 10;
+  padding: 0 50px 0 390px;
+}
+
+.services-types-carousel__pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: static;
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-pagination-inactive);
+    opacity: 1;
+    transition: var(--transition-base);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--overlay-hover);
+    }
+
+    &-active {
+      background: var(--color-pagination-active);
+    }
+  }
+}
+
+.services-types-carousel__navigation {
+  display: flex;
+  gap: 12px;
+}
+
+/* ≥1201px */
+@media (width >=1201px) {
+  .services-types-section__container--desktop {
+    display: grid;
+  }
+
+  .services-types-section__container--mobile {
+    display: none;
+  }
+}
+
+/* ≤1200px */
+@media (width <=1200px) {
+  .services-types-section__container--desktop {
+    display: none;
+  }
+
+  .services-types-section__container--mobile {
+    display: block;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .services-types-section__title {
+    @include font-section-title-mobile;
+
+    font-size: 36px;
+    width: 90%;
+    max-width: 90%;
+    min-width: 0;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .services-types-section__description {
+    display: none;
+  }
+
+  .services-types-mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 14px;
+  }
+}
+
+/* ≤900px */
+@media (width <=900px) {
+  .services-types-mobile-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 16px;
+  }
+}
+
+/* ≤768px */
+@media (width <=768px) {
+  .services-types-section {
+    background-color: var(--color-bg-main-mobile);
+  }
+
+  .services-types-mobile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

@@ -1,0 +1,272 @@
+// Services main section
+
+.services-main-section {
+  padding: 0;
+  background-color: inherit;
+}
+
+.services-main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border-blue);
+  margin-bottom: 25px;
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.services-main-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 10px;
+  gap: 10px;
+  border-radius: var(--border-radius-small);
+  background: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+
+  span {
+    @include font-card-list;
+
+    color: var(--color-badge-text);
+  }
+}
+
+.services-main-title {
+  @include font-section-title;
+
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.services-main-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 23px 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.services-main-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-services-card-border);
+  background: var(--color-surface-gray);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  transition: var(--transition-base);
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  &__image {
+    width: 100%;
+    height: convert-to-rem(239px);
+    flex-shrink: 0;
+    object-fit: cover;
+
+    &--placeholder {
+      background: var(--color-bg-placeholder);
+      height: convert-to-rem(239px);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 13px 30px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__title {
+    @include font-service-card-title;
+
+    color: var(--color-text-primary);
+    margin: 0;
+    width: 90%;
+  }
+
+  &__divider {
+    width: 201px;
+    height: 1px;
+    background: var(--color-divider-dark);
+    border: none;
+    margin: 0;
+  }
+}
+
+// Consultation card
+
+.services-main-consultation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 100px 15px;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-border-dark-gray);
+  background: transparent;
+  text-align: center;
+  gap: 10px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 291px;
+    gap: 10px;
+  }
+
+  &__text {
+    @include font-consultation-text;
+
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 20px;
+  }
+}
+
+// Media
+
+// 1400px — 3 columns
+@media (width <= 1400px) {
+  .services-main-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// 1200px — 2 columns
+@media (width <= 1200px) {
+  .services-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .services-main-card,
+  .services-main-consultation {
+    height: 100%;
+  }
+
+  .services-main-consultation {
+    padding: 60px 20px;
+  }
+}
+
+// 900px — 2 columns, tighter gap
+@media (width <= 900px) {
+  .services-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+  }
+
+  .services-main-card__content {
+    padding: 8px 12px 24px;
+  }
+}
+
+// 768px — mobile layout
+@media (width <= 768px) {
+  .services-main-section {
+    padding: 30px 0;
+  }
+
+  .services-main-header {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    gap: 10px;
+
+    &-left {
+      align-items: center;
+    }
+  }
+
+  .services-main-title {
+    @include font-section-title-mobile;
+
+    text-align: center;
+  }
+
+  .services-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .services-main-card {
+    min-height: 180px;
+
+    &__image {
+      height: convert-to-rem(142px);
+
+      &--placeholder {
+        height: convert-to-rem(142px);
+      }
+    }
+
+    &__content {
+      padding: 6px 10px 16px;
+      align-items: center;
+    }
+
+    &__title {
+      @include font-service-card-title-mobile;
+
+      text-align: center;
+      width: 100%;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__divider {
+      width: 143px;
+      margin: 3px auto 0;
+    }
+  }
+
+  .services-main-consultation {
+    padding: 15px;
+    min-height: 180px;
+
+    &__content {
+      width: 100%;
+      max-width: 291px;
+      gap: 0;
+    }
+
+    &__text {
+      @include font-consultation-text-mobile;
+
+      text-align: center;
+    }
+  }
+}
+
+// 767px
+@media (width <= 767px) {
+  .services-main-consultation .btn-tertiary {
+    display: none;
+  }
+}

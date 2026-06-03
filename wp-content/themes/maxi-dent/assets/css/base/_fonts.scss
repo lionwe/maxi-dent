@@ -1,0 +1,1080 @@
+// =============================================================================
+// FONT IMPORTS
+// =============================================================================
+
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap";
+
+// =============================================================================
+// FONT FAMILY VARIABLES
+// =============================================================================
+
+$font-family-montserrat: "Montserrat", sans-serif;
+$font-family-poppins: "Poppins", sans-serif;
+$font-family-mulish: "Mulish", sans-serif;
+
+// =============================================================================
+// BASE TOKENS - TITLES (Montserrat)
+// =============================================================================
+
+// Hero Titles (XXL scale)
+@mixin font-title-hero-xxl {
+  @include font-base($font-family-montserrat, 400, 80px, 72px);
+}
+
+@mixin font-title-hero-xxl-1200 {
+  @include font-base($font-family-montserrat, 400, 72px, 68px);
+}
+
+@mixin font-title-hero-xxl-tablet {
+  @include font-base($font-family-montserrat, 400, 70px, 64px);
+}
+
+@mixin font-title-hero-xxl-tablet-small {
+  @include font-base($font-family-montserrat, 400, 60px, 56px);
+}
+
+@mixin font-title-hero-xxl-900 {
+  @include font-base($font-family-montserrat, 400, 56px, 52px);
+}
+
+@mixin font-title-hero-xxl-820 {
+  @include font-base($font-family-montserrat, 400, 50px, 48px);
+}
+
+@mixin font-title-hero-xxl-480 {
+  @include font-base($font-family-montserrat, 400, 44px, 42px);
+}
+
+// Hero Titles (XL scale, раніше Service Hero Titles)
+@mixin font-title-hero-xl {
+  @include font-base($font-family-montserrat, 400, 52px, 50px);
+}
+
+@mixin font-title-hero-xl-mobile {
+  @include font-base($font-family-montserrat, 400, 44px, 42px);
+}
+
+@mixin font-title-hero-xl-768 {
+  @include font-base($font-family-montserrat, 400, 40px, 38px);
+}
+
+@mixin font-title-hero-xl-576 {
+  @include font-base($font-family-montserrat, 400, 36px, 36px);
+}
+
+// Large Titles
+@mixin font-title-xl {
+  @include font-base($font-family-montserrat, 500, 85px, 70px, -0.03em);
+}
+
+@mixin font-title-xxl {
+  @include font-base($font-family-montserrat, 500, 50px, 55px);
+}
+
+@mixin font-title-large {
+  @include font-base($font-family-montserrat, 400, 42px, 40px);
+}
+
+@mixin font-title-medium {
+  @include font-base($font-family-montserrat, 400, 38px, 40px);
+}
+
+// Regular Titles
+@mixin font-title-regular {
+  @include font-base($font-family-montserrat, 400, 20px, 32px);
+}
+
+@mixin font-title-regular-bold {
+  @include font-base($font-family-montserrat, 500, 20px, 28px);
+}
+
+@mixin font-title-small {
+  @include font-base($font-family-montserrat, 500, 18px, 28px);
+}
+
+@mixin font-title-small-medium {
+  @include font-title-small;
+}
+
+@mixin font-title-card {
+  @include font-base($font-family-montserrat, 400, 18px, 20px);
+}
+
+@mixin font-title-xs {
+  @include font-base($font-family-montserrat, 500, 16px, 28px);
+}
+
+@mixin font-title-xs-bold {
+  @include font-title-xs;
+}
+
+// Large Titles (52px)
+@mixin font-title-lg {
+  @include font-base($font-family-montserrat, 500, 52px, 52px);
+}
+
+@mixin font-title-sm {
+  @include font-base($font-family-montserrat, 500, 24px, 33.6px);
+}
+
+// Medium Titles (28px)
+@mixin font-title-md {
+  @include font-base($font-family-montserrat, 500, 28px, 28px);
+}
+
+// =============================================================================
+// BASE TOKENS - TEXT (Montserrat)
+// =============================================================================
+
+// Large Text
+@mixin font-text-large {
+  @include font-base($font-family-montserrat, 400, 18px, 32px);
+}
+
+// Medium Text
+@mixin font-text-medium {
+  @include font-base($font-family-montserrat, 400, 16px, 24px);
+}
+
+@mixin font-text-medium-tablet {
+  @include font-base($font-family-montserrat, 400, 16px, 22px);
+}
+
+@mixin font-text-medium-900 {
+  @include font-base($font-family-montserrat, 400, 15px, 20px);
+}
+
+// Regular Text
+@mixin font-text-regular {
+  @include font-base($font-family-montserrat, 400, 14px, 32px);
+}
+
+@mixin font-text-regular-tablet {
+  @include font-base($font-family-montserrat, 400, 15px, 32px);
+}
+
+@mixin font-text-regular-900 {
+  @include font-base($font-family-montserrat, 400, 14px, 32px);
+}
+
+@mixin font-text-regular-bold {
+  @include font-base($font-family-montserrat, 700, 16px, 32px);
+}
+
+// Small Text
+@mixin font-text-small {
+  @include font-base($font-family-montserrat, 500, 16px, 20px);
+}
+
+@mixin font-text-small-medium {
+  @include font-base($font-family-montserrat, 500, 14px, 20px);
+}
+
+// Extra Small Text
+@mixin font-text-xs {
+  @include font-base($font-family-montserrat, 400, 12px, 70px);
+}
+
+@mixin font-text-xs-regular {
+  @include font-base($font-family-montserrat, 400, 12px, 32px);
+}
+
+@mixin font-text-xs-compact {
+  @include font-base($font-family-montserrat, 400, 12px, 16px);
+}
+
+@mixin font-text-xs-tight {
+  @include font-base($font-family-montserrat, 400, 12px, 15px);
+}
+
+@mixin font-text-xs-map {
+  @include font-base($font-family-montserrat, 400, 12px, 14px);
+}
+
+@mixin font-text-xxs {
+  @include font-base($font-family-montserrat, 400, 10px, 28px);
+}
+
+// Special Text
+@mixin font-price {
+  @include font-base($font-family-montserrat, 500, 18px, 28px);
+}
+
+@mixin font-number {
+  @include font-base($font-family-montserrat, 400, 12px, 1.67);
+}
+
+@mixin font-description-inline {
+  @include font-base($font-family-montserrat, 400, 18px, 25px);
+}
+
+@mixin font-text-medium-extended {
+  @include font-base($font-family-montserrat, 400, 16px, 25.6px);
+}
+
+// =============================================================================
+// BASE TOKENS - BODY (Poppins)
+// =============================================================================
+
+// Large Body Text
+@mixin font-body-stats-xl {
+  @include font-base($font-family-poppins, 400, 52px, 32px);
+}
+
+@mixin font-body-phone {
+  @include font-base($font-family-poppins, 400, 30px, 32px);
+}
+
+@mixin font-body-phone-480 {
+  @include font-base($font-family-poppins, 400, 18px, 32px);
+}
+
+@mixin font-body-large {
+  @include font-base($font-family-poppins, 400, 16px, 25px);
+}
+
+@mixin font-body-large-bold {
+  @include font-base($font-family-poppins, 700, 16px, 25px);
+}
+
+// Hero Description (generic, раніше Service Hero Description)
+@mixin font-body-hero-description {
+  @include font-base($font-family-poppins, 400, 18px, 22px);
+}
+
+@mixin font-body-hero-description-mobile {
+  @include font-base($font-family-poppins, 400, 16px, 20px);
+}
+
+// Regular Body Text
+@mixin font-body-regular {
+  @include font-base($font-family-poppins, 400, 16px, 32px);
+}
+
+@mixin font-body-regular-tablet {
+  @include font-base($font-family-poppins, 400, 15px, 32px);
+}
+
+@mixin font-body-regular-900 {
+  @include font-base($font-family-poppins, 400, 14px, 32px);
+}
+
+@mixin font-body-regular-480 {
+  @include font-base($font-family-poppins, 400, 16px, 26px);
+}
+
+@mixin font-body-medium {
+  @include font-base($font-family-poppins, 400, 15px, 20px);
+}
+
+// Small Body Text
+@mixin font-body-small {
+  @include font-base($font-family-poppins, 400, 14px, 32px);
+}
+
+@mixin font-body-small-compact {
+  @include font-base($font-family-poppins, 400, 14px, 22px);
+}
+
+@mixin font-body-small-tight {
+  @include font-base($font-family-poppins, 400, 14px, 20px);
+}
+
+// Extra Small Body Text
+@mixin font-body-xs {
+  @include font-base($font-family-poppins, 400, 12px, 20px);
+}
+
+@mixin font-body-xs-tight {
+  @include font-base($font-family-poppins, 400, 12px, 15px);
+}
+
+// =============================================================================
+// BASE TOKENS - SPECIAL (Mulish)
+// =============================================================================
+
+@mixin font-experience-label {
+  @include font-base($font-family-mulish, 400, 12px, 1.4);
+}
+
+@mixin font-experience-value {
+  @include font-base($font-family-mulish, 700, 16px, 1);
+}
+
+@mixin font-footer-text {
+  @include font-base($font-family-mulish, 400, 14px, 150%);
+}
+
+// =============================================================================
+// BASE TOKENS - STATS
+// =============================================================================
+
+@mixin font-stats-label {
+  @include font-base($font-family-montserrat, 400, 20px, 32px);
+}
+
+@mixin font-stats-number-large {
+  @include font-base($font-family-montserrat, 500, 40px, 32px);
+}
+
+@mixin font-stats-description {
+  @include font-base($font-family-montserrat, 400, 20px, 32px);
+}
+
+// =============================================================================
+// BASE TOKENS - MOBILE
+// =============================================================================
+
+// Mobile Titles
+@mixin font-title-xl-mobile {
+  @include font-base($font-family-montserrat, 400, 40px, 1.1);
+}
+
+@mixin font-title-large-mobile {
+  @include font-base($font-family-montserrat, 500, 26px, 32px);
+}
+
+@mixin font-title-medium-mobile {
+  @include font-base($font-family-montserrat, 400, 40px, 40px);
+}
+
+// Mobile Text
+@mixin font-text-medium-mobile {
+  @include font-base($font-family-montserrat, 400, 16px, 24px);
+}
+
+@mixin font-text-small-mobile {
+  @include font-base($font-family-montserrat, 400, 15px, 32px);
+}
+
+@mixin font-text-xs-mobile {
+  @include font-base($font-family-montserrat, 400, 12px, 1);
+}
+
+@mixin font-text-xs-map-mobile {
+  @include font-base($font-family-montserrat, 400, 15px, 14px);
+}
+
+// Mobile Body
+@mixin font-body-phone-mobile {
+  @include font-base($font-family-poppins, 400, 26px, 32px);
+}
+
+@mixin font-body-regular-mobile {
+  @include font-base($font-family-poppins, 400, 16px, 32px);
+}
+
+@mixin font-body-map-title-mobile {
+  @include font-base($font-family-montserrat, 400, 20px, 32px);
+}
+
+// =============================================================================
+// BASE TOKENS - HERO ARTICLE MOBILE (раніше BLOG HERO)
+// =============================================================================
+
+@mixin font-hero-article-breadcrumb-mobile {
+  @include font-base($font-family-montserrat, 400, 12px, 15px);
+}
+
+@mixin font-hero-article-title-mobile {
+  @include font-base($font-family-montserrat, 400, 52px, 50px);
+}
+
+@mixin font-hero-article-title-mobile-small {
+  @include font-base($font-family-montserrat, 400, 48px, 46px);
+}
+
+@mixin font-hero-article-description-mobile {
+  @include font-base($font-family-poppins, 400, 18px, 28px);
+}
+
+@mixin font-hero-article-meta-label-mobile {
+  @include font-base($font-family-poppins, 400, 20px, 32px);
+}
+
+@mixin font-hero-article-meta-value-mobile {
+  @include font-base($font-family-poppins, 400, 20px, 32px);
+}
+
+@mixin font-body-article-text-mobile {
+  @include font-base($font-family-poppins, 300, 16px, 24px, -0.02em);
+}
+
+// =============================================================================
+// BASE TOKENS - HERO MOBILE
+// =============================================================================
+
+@mixin font-hero-mobile-users-image {
+  width: 114px;
+  height: 36px;
+}
+
+@mixin font-hero-mobile-users-text {
+  @include font-base($font-family-montserrat, 700, 15px, 32px);
+}
+
+@mixin font-hero-mobile-title-main {
+  @include font-base($font-family-montserrat, 500, 48px, 48px, -0.03em);
+}
+
+@mixin font-hero-mobile-title-secondary {
+  @include font-base($font-family-montserrat, 400, 24px, 30px);
+}
+
+@mixin font-hero-mobile-description {
+  @include font-base($font-family-poppins, 400, 18px, 22px);
+}
+
+@mixin font-hero-mobile-card-title {
+  @include font-base($font-family-montserrat, 400, 18px, 32px);
+}
+
+@mixin font-hero-mobile-card-text {
+  @include font-base($font-family-montserrat, 400, 12px, 32px);
+}
+
+@mixin font-hero-mobile-button-text {
+  @include font-base($font-family-poppins, 400, 18px, 32px);
+}
+
+// =============================================================================
+// BASE TOKENS - BADGES
+// =============================================================================
+
+@mixin font-badge-mobile {
+  @include font-base($font-family-montserrat, 400, 14px, 32px);
+}
+
+@mixin font-badge {
+  @include font-base($font-family-montserrat, 400, 14px, 32px);
+}
+
+// =============================================================================
+// BASE TOKENS - STATS MOBILE
+// =============================================================================
+
+@mixin font-stats-number-mobile {
+  @include font-base($font-family-poppins, 400, 40px, 32px);
+}
+
+@mixin font-stats-text-mobile {
+  @include font-base($font-family-poppins, 400, 12px, 20px);
+}
+
+// =============================================================================
+// BASE TOKENS - HEADER MENU (різні розміри)
+// =============================================================================
+
+// Desktop (>1200px)
+@mixin font-header-menu-desktop {
+  @include font-base($font-family-poppins, 400, 16px, 32px);
+}
+
+// Tablet Large
+@mixin font-header-menu-tablet-large {
+  @include font-base($font-family-poppins, 400, 15px, 28px);
+}
+
+// Tablet
+@mixin font-header-menu-tablet {
+  @include font-base($font-family-poppins, 400, 14px, 24px);
+}
+
+// =============================================================================
+// BASE TOKENS - BUTTON
+// =============================================================================
+
+// Desktop
+@mixin font-button-desktop {
+  @include font-base($font-family-poppins, 400, 16px, 32px);
+}
+
+// Tablet Large
+@mixin font-button-tablet-large {
+  @include font-base($font-family-poppins, 400, 15px, 28px);
+}
+
+// Tablet
+@mixin font-button-tablet {
+  @include font-base($font-family-poppins, 400, 14px, 24px);
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - DESCRIPTIONS
+// =============================================================================
+
+@mixin font-description {
+  @include font-body-large;
+}
+
+@mixin font-description-bold {
+  @include font-body-large-bold;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - HERO
+// =============================================================================
+
+@mixin font-hero-title-main {
+  @include font-title-xl;
+}
+
+@mixin font-hero-title-secondary {
+  @include font-title-medium;
+}
+
+@mixin font-hero-users-bold {
+  @include font-text-regular-bold;
+}
+
+@mixin font-hero-description {
+  @include font-body-large;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - SECTIONS
+// =============================================================================
+
+@mixin font-section-title {
+  @include font-title-large;
+}
+
+@mixin font-section-title-mobile {
+  @include font-title-medium-mobile;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - CARDS
+// =============================================================================
+
+@mixin font-card-title {
+  @include font-title-regular;
+}
+
+@mixin font-card-list {
+  @include font-text-small;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - STATS
+// =============================================================================
+
+@mixin font-stats-number {
+  @include font-body-stats-xl;
+}
+
+@mixin font-stats-text {
+  @include font-body-small;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - ABOUT
+// =============================================================================
+
+@mixin font-about-description {
+  @include font-body-large;
+}
+
+@mixin font-about-description-bold {
+  @include font-body-large-bold;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - SERVICES
+// =============================================================================
+
+@mixin font-service-badge {
+  @include font-text-xs;
+}
+
+@mixin font-service-card-title {
+  @include font-title-xs;
+}
+
+@mixin font-service-card-description {
+  @include font-body-xs-tight;
+}
+
+@mixin font-service-card-title-mobile {
+  @include font-text-small;
+}
+
+// Service Hero (через загальні hero-токени)
+@mixin font-service-hero-title {
+  @include font-title-hero-xl;
+}
+
+@mixin font-service-hero-title-mobile {
+  @include font-title-hero-xl-mobile;
+}
+
+@mixin font-service-hero-title-768 {
+  @include font-title-hero-xl-768;
+}
+
+@mixin font-service-hero-title-576 {
+  @include font-title-hero-xl-576;
+}
+
+@mixin font-service-hero-description {
+  @include font-body-hero-description;
+}
+
+@mixin font-service-hero-description-mobile {
+  @include font-body-hero-description-mobile;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - CONSULTATION
+// =============================================================================
+
+@mixin font-consultation-text-mobile {
+  @include font-text-small;
+}
+
+@mixin font-consultation-text {
+  @include font-text-small;
+}
+
+@mixin font-consultation-button {
+  @include font-body-regular;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - CONTACT
+// =============================================================================
+
+@mixin font-contact-title {
+  @include font-title-xxl;
+}
+
+@mixin font-contact-description {
+  @include font-text-medium;
+}
+
+@mixin font-contact-manager {
+  @include font-text-regular;
+}
+
+@mixin font-contact-counter {
+  @include font-text-xs-compact;
+}
+
+@mixin font-contact-input-label {
+  @include font-text-xs-compact;
+}
+
+@mixin font-contact-info-badge {
+  @include font-text-xs-regular;
+}
+
+@mixin font-contact-info-phone-title {
+  @include font-text-large;
+}
+
+@mixin font-contact-info-phone-number {
+  @include font-body-phone;
+}
+
+@mixin font-contact-info-schedule-title {
+  @include font-title-regular;
+}
+
+@mixin font-contact-info-schedule-text {
+  @include font-text-xs-regular;
+}
+
+@mixin font-contact-info-map-title {
+  @include font-title-regular;
+}
+
+@mixin font-contact-info-map-text {
+  @include font-text-xs-map;
+}
+
+// Contact Mobile
+@mixin font-contact-title-mobile {
+  @include font-title-xl-mobile;
+}
+
+@mixin font-contact-description-mobile {
+  @include font-text-medium-mobile;
+}
+
+@mixin font-contact-manager-text-mobile {
+  @include font-text-small;
+}
+
+@mixin font-contact-info-phone-title-mobile {
+  @include font-text-medium;
+}
+
+@mixin font-contact-info-phone-number-mobile {
+  @include font-body-phone-mobile;
+}
+
+@mixin font-contact-info-schedule-title-mobile {
+  @include font-title-large-mobile;
+}
+
+@mixin font-contact-info-schedule-text-mobile {
+  @include font-text-small-mobile;
+}
+
+@mixin font-contact-info-map-title-mobile {
+  @include font-body-map-title-mobile;
+}
+
+@mixin font-contact-info-map-text-mobile {
+  @include font-text-xs-map-mobile;
+}
+
+@mixin font-contact-input-mobile {
+  @include font-text-xs-mobile;
+}
+
+@mixin font-contact-button-mobile {
+  @include font-body-regular-mobile;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - TEAM
+// =============================================================================
+
+@mixin font-team-badge {
+  @include font-text-regular;
+}
+
+@mixin font-team-title {
+  @include font-title-large;
+}
+
+@mixin font-team-description {
+  @include font-body-medium;
+}
+
+@mixin font-team-card-title {
+  @include font-title-small;
+}
+
+@mixin font-team-card-description {
+  @include font-body-xs;
+}
+
+@mixin font-team-experience-label {
+  @include font-experience-label;
+}
+
+@mixin font-team-experience-value {
+  @include font-experience-value;
+}
+
+@mixin font-team-carousel-number {
+  @include font-number;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - RESULTS
+// =============================================================================
+
+@mixin font-results-title {
+  @include font-title-regular;
+}
+
+@mixin font-results-hint {
+  @include font-text-xxs;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - PRICING
+// =============================================================================
+
+@mixin font-pricing-badge {
+  @include font-text-small;
+}
+
+@mixin font-pricing-title {
+  @include font-title-large;
+}
+
+@mixin font-pricing-item {
+  @include font-text-xs-regular;
+}
+
+@mixin font-pricing-service-name {
+  @include font-title-xs;
+}
+
+@mixin font-pricing-service-price {
+  @include font-price;
+}
+
+// Mobile Pricing
+@mixin font-pricing-service-name-mobile {
+  @include font-text-xs-compact;
+}
+
+@mixin font-pricing-service-price-mobile {
+  @include font-text-xs-compact;
+  font-weight: 600;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - FAQ
+// =============================================================================
+
+@mixin font-faq-badge {
+  @include font-text-small;
+}
+
+@mixin font-faq-title {
+  @include font-title-large;
+}
+
+@mixin font-faq-consultation-title {
+  @include font-title-regular-bold;
+}
+
+@mixin font-faq-consultation-description {
+  @include font-text-xs-tight;
+}
+
+@mixin font-faq-question {
+  @include font-title-small;
+}
+
+@mixin font-faq-answer {
+  @include font-body-small-compact;
+}
+
+@mixin font-faq-item-question {
+  @include font-title-xs-bold;
+}
+
+@mixin font-faq-item-answer {
+  @include font-text-medium;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - REVIEWS
+// =============================================================================
+
+@mixin font-reviews-badge {
+  @include font-text-regular;
+}
+
+@mixin font-reviews-title {
+  @include font-title-large;
+}
+
+@mixin font-reviews-card-title {
+  @include font-title-small;
+}
+
+@mixin font-reviews-card-description {
+  @include font-body-small-tight;
+}
+
+@mixin font-reviews-card-author {
+  @include font-text-small-medium;
+}
+
+@mixin font-reviews-card-text {
+  @include font-text-xs-compact;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - BLOG
+// =============================================================================
+
+@mixin font-blog-badge {
+  @include font-text-small;
+}
+
+@mixin font-blog-title {
+  @include font-title-large;
+}
+
+@mixin font-blog-card-title {
+  @include font-title-card;
+}
+
+@mixin font-blog-card-badge {
+  @include font-text-xs-regular;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - POST HERO (Desktop)
+// =============================================================================
+
+@mixin font-post-hero-title {
+  @include font-title-hero-xxl;
+}
+
+@mixin font-post-hero-title-1200 {
+  @include font-title-hero-xxl-1200;
+}
+
+@mixin font-post-hero-title-tablet {
+  @include font-title-hero-xxl-tablet;
+}
+
+@mixin font-post-hero-title-tablet-small {
+  @include font-title-hero-xxl-tablet-small;
+}
+
+@mixin font-post-hero-title-900 {
+  @include font-title-hero-xxl-900;
+}
+
+@mixin font-post-hero-title-820 {
+  @include font-title-hero-xxl-820;
+}
+
+@mixin font-post-hero-description {
+  @include font-description-inline;
+}
+
+@mixin font-post-hero-description-tablet {
+  @include font-text-medium-tablet;
+}
+
+@mixin font-post-hero-description-900 {
+  @include font-text-medium-900;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - POST META (Desktop)
+// =============================================================================
+
+@mixin font-post-meta-label {
+  @include font-body-regular;
+}
+
+@mixin font-post-meta-label-tablet {
+  @include font-text-regular-tablet;
+}
+
+@mixin font-post-meta-label-900 {
+  @include font-text-regular-900;
+}
+
+@mixin font-post-meta-value {
+  @include font-body-regular;
+}
+
+@mixin font-post-meta-value-tablet {
+  @include font-body-regular-tablet;
+}
+
+@mixin font-post-meta-value-900 {
+  @include font-body-regular-900;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - POST HERO (Mobile)
+// =============================================================================
+
+@mixin font-post-hero-breadcrumb-mobile {
+  @include font-hero-article-breadcrumb-mobile;
+}
+
+@mixin font-post-hero-title-mobile {
+  @include font-hero-article-title-mobile;
+}
+
+@mixin font-post-hero-title-mobile-small {
+  @include font-hero-article-title-mobile-small;
+}
+
+@mixin font-post-hero-title-480 {
+  @include font-title-hero-xxl-480;
+}
+
+@mixin font-post-hero-description-mobile {
+  @include font-hero-article-description-mobile;
+}
+
+@mixin font-post-hero-description-480 {
+  @include font-body-regular-480;
+}
+
+@mixin font-post-meta-label-mobile {
+  @include font-hero-article-meta-label-mobile;
+}
+
+@mixin font-post-meta-label-480 {
+  @include font-body-phone-480;
+}
+
+@mixin font-post-meta-value-mobile {
+  @include font-hero-article-meta-value-mobile;
+}
+
+@mixin font-post-meta-value-480 {
+  @include font-body-phone-480;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - POST CONTENT
+// =============================================================================
+
+@mixin font-post-content-text {
+  @include font-body-regular;
+}
+
+@mixin font-post-content-text-mobile {
+  @include font-body-article-text-mobile;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - GLOBAL
+// =============================================================================
+
+@mixin font-share-title {
+  @include font-text-large;
+}
+
+@mixin font-header-menu {
+  @include font-header-menu-desktop;
+}
+
+@mixin font-button {
+  @include font-button-desktop;
+}
+
+@mixin font-body {
+  @include font-body-regular;
+}
+
+// =============================================================================
+// SEMANTIC ALIASES - PRIVACY
+// =============================================================================
+
+// Desktop
+@mixin font-privacy-title {
+  @include font-title-lg;
+}
+
+@mixin font-privacy-heading {
+  @include font-title-sm;
+}
+
+@mixin font-privacy-text {
+  @include font-text-medium-extended;
+}
+
+// Mobile
+@mixin font-privacy-title-mobile {
+  @include font-title-md;
+}
+
+@mixin font-privacy-heading-mobile {
+  @include font-title-regular-bold;
+}
+
+@mixin font-privacy-text-mobile {
+  @include font-text-medium;
+}

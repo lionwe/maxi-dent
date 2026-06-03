@@ -1,0 +1,54 @@
+// Breadcrumbs Component
+
+.single-blog-hero,
+.single-service-hero {
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: var(--_blog-hero-padding-top);
+
+    @include font-body-regular;
+
+    position: relative;
+    z-index: 1;
+
+    &__link {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: var(--transition-base);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+
+      &:active {
+        color: var(--color-primary);
+      }
+    }
+
+    &__separator {
+      color: var(--color-text-muted);
+      opacity: 0.8;
+    }
+
+    &__current {
+      color: var(--color-white);
+    }
+  }
+}
+
+// Mobile
+@media (width <= 768px) {
+  .single-blog-hero,
+  .single-service-hero {
+    .breadcrumbs {
+      padding-top: 0;
+      margin-bottom: 80px;
+
+      @include font-post-hero-breadcrumb-mobile;
+    }
+  }
+}

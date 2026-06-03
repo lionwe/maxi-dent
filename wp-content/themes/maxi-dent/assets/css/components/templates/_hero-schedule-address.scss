@@ -1,0 +1,200 @@
+// Card styles
+
+.hero-card {
+  min-height: 120px;
+  padding: 11px;
+  background: var(--color-surface-white-40);
+  border-radius: var(--border-radius-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 0 240px;
+  max-width: 240px;
+  min-width: 0;
+
+  &__title {
+    @include font-card-title;
+
+    color: var(--color-white);
+    margin: 0;
+    text-align: left;
+  }
+
+  &__content {
+    min-height: 30px;
+    padding: 6px 0 6px 8px;
+    background: var(--color-surface-white-10);
+    border-radius: var(--border-radius-small);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    @include font-card-list;
+
+    color: var(--color-white);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 9px;
+      background: var(--color-primary-light);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Map block
+
+.hero-map {
+  margin-top: 6px;
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+}
+
+// Stats card only
+
+.hero-stats {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--color-stats-border);
+  border-radius: var(--border-radius-medium);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__title {
+    @include font-stats-label;
+
+    color: var(--color-white);
+    margin: 0 0 4px;
+  }
+
+  &__data {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  &__number {
+    @include font-stats-number-large;
+
+    color: var(--color-white);
+  }
+
+  &__description {
+    @include font-stats-description;
+
+    color: var(--color-white);
+  }
+}
+
+/* 1200px */
+@media (width <= 1200px) {
+  .hero-card {
+    flex: 1 1 48%;
+    max-width: 48%;
+  }
+}
+
+/* 992px */
+@media (width <= 992px) {
+  .hero-card {
+    flex: 1 1 48%;
+    max-width: 48%;
+    min-width: 140px;
+  }
+
+  .hero-stats {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+/* 768px */
+@media (width <= 768px) {
+  .hero-card {
+    flex: 1;
+    max-width: none;
+    width: 170px;
+    min-height: 196px;
+    padding: 0;
+
+    &__title {
+      @include font-hero-mobile-card-title;
+
+      padding: 0 0 0 10px;
+      margin: 8px 0 4px;
+    }
+
+    &__content {
+      padding: 4px 7px 9px;
+      border-radius: 0;
+      max-height: 120px;
+      overflow: hidden;
+    }
+
+    &__list {
+      gap: 8px;
+    }
+
+    &__item {
+      @include font-hero-mobile-card-text;
+
+      gap: 5px;
+      line-height: 20px;
+
+      &::before {
+        width: 7px;
+        height: 7px;
+      }
+    }
+  }
+
+  .hero-map {
+    margin: 4px 10px 9px;
+    width: calc(100% - 20px);
+    height: 75px;
+    min-height: 75px;
+  }
+
+  .hero-stats {
+    margin-bottom: 0;
+  }
+}
+
+/* 576px */
+@media (width <= 576px) {
+  .hero-card {
+    width: 160px;
+  }
+}

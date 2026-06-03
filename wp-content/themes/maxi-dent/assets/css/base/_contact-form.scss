@@ -1,0 +1,118 @@
+// contact form
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: var(--_form-field-gap);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 52px;
+    padding: var(--_form-input-padding-y) var(--_form-input-padding-x);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--color-form-input-border);
+    background: var(--color-form-input-bg);
+
+    @include font-contact-description;
+
+    color: var(--color-text-primary);
+    transition: var(--transition-base);
+    box-sizing: border-box;
+
+    &::placeholder {
+      @include font-contact-description;
+
+      color: var(--color-form-input-placeholder);
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      background: var(--color-form-input-focus);
+    }
+
+    &--invalid {
+      border-color: var(--color-form-input-invalid-border);
+      background: var(--color-form-input-invalid-bg);
+      animation: shake var(--animation-duration-shake) ease;
+    }
+
+    &--valid {
+      border-color: var(--color-form-input-valid);
+    }
+  }
+
+  &__button-wrapper {
+    margin-top: var(--_form-button-margin-top);
+  }
+
+  &__button {
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition-base);
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// shake animation
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+
+// Media
+
+// tablet
+
+@media (width <= 1024px) {
+  .contact-form__input {
+    @include font-text-small;
+  }
+
+  .contact-form__input::placeholder {
+    @include font-text-small;
+  }
+}
+
+// mobile
+
+@media (width <= 768px) {
+  .contact-form__input {
+    @include font-text-xs-mobile;
+  }
+
+  .contact-form__input::placeholder {
+    @include font-text-xs-mobile;
+  }
+
+  .contact-form__button .btn-primary__text {
+    @include font-body-regular-mobile;
+  }
+}

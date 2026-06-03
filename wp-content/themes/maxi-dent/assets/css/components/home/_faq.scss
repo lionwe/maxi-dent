@@ -1,0 +1,367 @@
+.faq-section {
+  padding: 42px 0;
+  min-height: 475px;
+  position: relative;
+  clip-path: inset(0);
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    gap: 80px;
+    align-items: stretch;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.faq-left {
+  flex: 0 0 auto;
+  width: 35%;
+  max-width: 450px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  z-index: 10;
+  justify-content: space-between;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--color-border-blue);
+  }
+}
+
+.faq-badge {
+  width: 98px;
+  height: 32px;
+  padding: 10px;
+  border-radius: var(--border-radius-medium);
+  background: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    @include font-faq-badge;
+
+    color: var(--color-badge-text);
+    margin: 0;
+  }
+}
+
+.faq-title {
+  @include font-faq-title;
+
+  color: var(--color-text-primary);
+  margin: 0;
+  max-width: 350px;
+}
+
+.faq-consultation-card {
+  width: 100%;
+  max-width: 318px;
+  padding: 22px 16px 15px;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-faq-border);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    @include font-faq-consultation-title;
+
+    color: var(--color-text-primary);
+    margin: 0;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--color-faq-border);
+    text-align: left;
+  }
+
+  &__description {
+    @include font-faq-consultation-description;
+
+    color: var(--color-faq-text-muted);
+    margin: 12px 0 0;
+    padding: 0;
+    text-align: left;
+    line-height: 15px;
+  }
+
+  &__button {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 260px;
+    height: 46px;
+
+    a,
+    button {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &--desktop {
+    display: flex;
+  }
+
+  &--mobile {
+    display: none;
+  }
+}
+
+.faq-right {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.faq-grid {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.faq-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.faq-consultation-strip {
+  background: var(--color-white);
+  padding: 0 0 42px;
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (width >=769px) {
+  .faq-consultation-strip {
+    display: none;
+  }
+}
+
+@media (width <=1200px) {
+  .faq-section {
+    clip-path: none;
+
+    &__bg img {
+      position: absolute;
+    }
+  }
+
+  .faq-section .container {
+    gap: 60px;
+  }
+
+  .faq-left {
+    flex: 0 0 auto;
+    width: 40%;
+    max-width: 400px;
+  }
+
+  .faq-right {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .faq-grid {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 480px;
+    align-items: stretch;
+  }
+
+  .faq-column {
+    width: 100%;
+  }
+
+  .faq-title {
+    @include font-section-title-mobile;
+
+    max-width: none;
+  }
+}
+
+@media (width <=992px) {
+  .faq-section {
+    padding: 36px 0;
+  }
+
+  .faq-section .container {
+    gap: 40px;
+  }
+}
+
+@media (width <=768px) {
+  .faq-section {
+    padding: 30px 0;
+  }
+
+  .faq-section .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .faq-left {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    gap: 0;
+    justify-content: flex-start;
+  }
+
+  .faq-left__header {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 18px;
+  }
+
+  .faq-title {
+    @include font-section-title-mobile;
+
+    max-width: none;
+  }
+
+  .faq-consultation-card--desktop {
+    display: none;
+  }
+
+  .faq-right {
+    flex: 1 1 auto;
+    width: 100%;
+    display: block;
+    overflow: visible;
+  }
+
+  .faq-grid {
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 49px;
+    max-width: 100%;
+  }
+
+  .faq-column {
+    width: 100%;
+  }
+
+  .faq-consultation-card--mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 40px 8px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--color-faq-border);
+    background: var(--color-white);
+  }
+
+  .faq-consultation-card--mobile .faq-consultation-card__title {
+    @include font-title-large-mobile;
+
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .faq-consultation-card__divider {
+    width: 298px;
+    max-width: 100%;
+    height: 1px;
+    background: var(--color-faq-border);
+    margin: 5px auto 12px;
+  }
+
+  .faq-consultation-card--mobile .faq-consultation-card__description {
+    @include font-text-medium-mobile;
+
+    text-align: center;
+    margin: 0 0 12px;
+  }
+
+  .faq-consultation-card--mobile .faq-consultation-card__button {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .faq-consultation-card--mobile .faq-consultation-card__button a,
+  .faq-consultation-card--mobile .faq-consultation-card__button button {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .faq-consultation-card--mobile
+    .faq-consultation-card__button
+    .btn-secondary__text {
+    @include font-hero-mobile-button-text;
+
+    text-align: center;
+    margin: 0;
+    white-space: normal;
+  }
+
+  .faq-consultation-card--mobile
+    .faq-consultation-card__button
+    .btn-secondary__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (width <=576px) {
+  .faq-section {
+    padding: 28px 0;
+  }
+
+  .faq-section .container {
+    gap: 20px;
+  }
+}
